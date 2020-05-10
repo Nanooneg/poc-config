@@ -14,19 +14,16 @@ export class TokenService {
   constructor(private authService: OAuthService) {}
 
   get isLogged(): boolean {
-    console.log('isLogged');
     return this.authService.hasValidIdToken() && this.authService.hasValidAccessToken();
   }
 
   get token(): string {
-    console.log(this.authService.getAccessToken());
     return this.authService.getAccessToken();
   }
 
   get payload(): Payload {
     if (this.isLogged && this.token) {
       try {
-        console.log('parsing token...');
         return JSON.parse(atob(this.token.split('.')[1]));
       } catch (e) {
         console.error('Cannot parse token payload');

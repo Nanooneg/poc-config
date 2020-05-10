@@ -1,0 +1,37 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: configuration
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Nanooneg/poc-config.git
+    discovery:
+      enabled: true
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 2
+    health-check-url-path: /actuator/health
+    metadata-map:
+      startup: ${random.int}    #needed to trigger info and endpoint update after restart
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
+      # credentials to access eureka server in environment variables : http://discUser:discPassword@localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+
+management:
+  endpoint:
+    health:
+     show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"

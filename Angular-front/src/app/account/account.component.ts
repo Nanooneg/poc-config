@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
-import {Observable, Subscription} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {AccountService} from "./account.service";
+import {AccountService} from './account.service';
+import {ResultModel} from './Result.model';
 
 @Component({
   selector: 'app-account',
@@ -13,7 +10,7 @@ import {AccountService} from "./account.service";
 })
 export class AccountComponent implements OnInit {
 
-  result: string;
+  result: ResultModel;
 
   constructor(private router: Router, private accountService: AccountService) {
   }
@@ -24,27 +21,31 @@ export class AccountComponent implements OnInit {
       this.accountService.getPublic().subscribe(
         response => {
           this.result = response;
-          console.log(response.toString());
-        }/*,
+        },
         (error) => {
           console.log('erreur : ' + error.message);
-        }*/
+        }
       );
     }else if (this.router.url === '/userOrAdmin') {
       this.accountService.getUser().subscribe(
         response => {
           this.result = response;
-          console.log(response);
+        },
+        (error) => {
+          console.log('erreur : ' + error.message);
         }
       );
     }else if (this.router.url === '/admin'){
       this.accountService.getAdmin().subscribe(
         response => {
           this.result = response;
-          console.log(response);
+        },
+        (error) => {
+          console.log('erreur : ' + error.message);
         }
       );
     }
+
   }
 
 }

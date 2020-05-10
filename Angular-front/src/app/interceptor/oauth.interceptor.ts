@@ -36,13 +36,11 @@ export class OauthInterceptor implements HttpInterceptor {
     const sendAccessToken = this.moduleConfig.resourceServer.sendAccessToken;
 
     if (!sendAccessToken) {
-      console.log('pas de token');
       return next
         .handle(req)
         .pipe(catchError(err => this.errorHandler.handleError(err)));
     }
 
-    console.log('token');
     return merge(
       of(this.oAuthService.getAccessToken()).pipe(
         filter(token => (!!token))
