@@ -1,0 +1,53 @@
+server:
+  port: ${SERVER_PORT}
+
+spring:
+  application:
+    name: gateway
+    discovery:
+      enabled: true
+    gateway:
+      default-filters:
+        - TokenRelay
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "http://localhost:4200/"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - DELETE
+#              - PUT
+#            add-to-simple-url-handler-mapping: true
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/auth/realms/test
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: app-test
+            client-secret: c219ae5d-66cc-4769-b4d2-673bea62977a
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+    metadata-map:
+      startup: ${random.int}    #needed to trigger info and endpoint update after restart
+  client:
+    # registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
+      # credentials to access eureka server in environment variables : http://discUser:discPassword@localhost:8761/eureka/
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"

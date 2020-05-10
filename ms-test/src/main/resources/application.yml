@@ -1,0 +1,29 @@
+server:
+  port: ${SERVER_PORT}
+
+spring:
+  application:
+    name: test
+  cloud:
+    discovery:
+      enabled: true
+  ## TO GET KEYCLOAK ENDPOINTS : http://localhost:8080/auth/realms/test/.well-known/openid-configuration
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/auth/realms/test
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 2
+    health-check-url-path: /actuator/health
+    metadata-map:
+      startup: ${random.int}    #needed to trigger info and endpoint update after restart
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
+    healthcheck:
+      enabled: true
