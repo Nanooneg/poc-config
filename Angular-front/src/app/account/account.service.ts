@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
@@ -14,15 +14,15 @@ export class AccountService {
 
   }
 
-  public getPublic(): Observable<ResultModel>  {
+  public getPublic(): Observable<any>  {
     return this.httpClient.get<ResultModel>(environment.endpointUrl.test.getPublic).pipe(map(httpResponse => httpResponse));
   }
 
-  public getAdmin(): Observable<ResultModel>  {
+  public getAdmin(): Observable<any>  {
     return this.httpClient.get<ResultModel>(environment.endpointUrl.test.getAdmin).pipe(map(httpResponse => httpResponse));
   }
 
-  public getUser(): Observable<ResultModel>  {
+  public getUser(): Observable<any>  {
     return this.httpClient.get<ResultModel>(environment.endpointUrl.test.getAdminOrUSer).pipe(map(httpResponse => httpResponse));
   }
 

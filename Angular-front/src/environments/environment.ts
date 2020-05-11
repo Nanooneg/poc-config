@@ -28,7 +28,7 @@ export const environment = {
     // The SPA's id.
     // The SPA is registerd with this id at the auth-server
     clientId: 'app-test',
-    dummyClientSecret: 'c219ae5d-66cc-4769-b4d2-673bea62977a',
+    dummyClientSecret: 'ace1f4d3-d0d1-422f-b74d-9287e6b7538b',
     responseType: 'code',
     // set the scope for the permissions the client should request
     // The first three are defined by OIDC.
