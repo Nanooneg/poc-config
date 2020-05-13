@@ -24,12 +24,12 @@ spring:
       client:
         provider:
           keycloak:
-            issuer-uri: http://localhost:8080/auth/realms/test
+            issuer-uri: https://www.auth.arnaudlaval-developer.com/auth/realms/zone-java
             user-name-attribute: preferred_username
         registration:
           keycloak:
-            client-id: app-test
-            client-secret: c219ae5d-66cc-4769-b4d2-673bea62977a
+            client-id: zone-java-app
+            client-secret: e752074c-6086-4e4d-9b36-db1d9ffb79dc
 
 eureka:
   instance:

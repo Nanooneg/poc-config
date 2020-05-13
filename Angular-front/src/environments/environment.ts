@@ -19,7 +19,7 @@ export const environment = {
   envName: 'local',
   keycloak: {
     // Url of the Identity Provider
-    issuer: 'http://localhost:8080/auth/realms/test',
+    issuer: 'https://www.auth.arnaudlaval-developer.com/auth/realms/zone-java',
 
     // URL of the SPA to redirect the user to after login
     // redirectUri: 'http://localhost:4200/',
@@ -27,8 +27,8 @@ export const environment = {
 
     // The SPA's id.
     // The SPA is registerd with this id at the auth-server
-    clientId: 'app-test',
-    dummyClientSecret: 'ace1f4d3-d0d1-422f-b74d-9287e6b7538b',
+    clientId: 'zone-java-app',
+    dummyClientSecret: 'e752074c-6086-4e4d-9b36-db1d9ffb79dc',
     responseType: 'code',
     // set the scope for the permissions the client should request
     // The first three are defined by OIDC.
@@ -37,7 +37,7 @@ export const environment = {
     // THIS SHOULD NOT BE USED IN PRODUCTION
     // USE A CERTIFICATE FOR YOUR IDP
     // IN PRODUCTION
-    requireHttps: false,
+    requireHttps: true,
     // at_hash is not present in JWT token
     showDebugInformation: true,
     disableAtHashCheck: true

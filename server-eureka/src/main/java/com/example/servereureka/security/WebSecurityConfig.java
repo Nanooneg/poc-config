@@ -1,5 +1,6 @@
 package com.example.servereureka.security;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -25,7 +26,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                //.mvcMatchers(HttpMethod.GET, "/actuator/**").permitAll()
+                .mvcMatchers(HttpMethod.GET, "/actuator/**").permitAll()
                 .anyRequest().authenticated().and()
                 .httpBasic();
     }

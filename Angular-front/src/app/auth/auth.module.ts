@@ -21,4 +21,3 @@ import {authConfig, OAuthModuleConfig} from './auth-config';
   ]
 })
 export class AuthModule { }
-1

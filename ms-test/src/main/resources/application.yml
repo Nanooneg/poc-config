@@ -12,7 +12,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/auth/realms/test
+          issuer-uri: https://www.auth.arnaudlaval-developer.com/auth/realms/zone-java
 
 eureka:
   instance:
@@ -27,3 +27,12 @@ eureka:
       defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
     healthcheck:
       enabled: true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
