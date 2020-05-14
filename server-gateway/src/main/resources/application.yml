@@ -29,7 +29,7 @@ spring:
         registration:
           keycloak:
             client-id: zone-java-app
-            client-secret: e752074c-6086-4e4d-9b36-db1d9ffb79dc
+            client-secret: 2d60113c-931b-41f0-a992-ec1b479c8742
 
 eureka:
   instance:
