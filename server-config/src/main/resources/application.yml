@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Nanooneg/poc-config.git
+          uri: https://github.com/Nanooneg/external-config-PocLive.git
     discovery:
       enabled: true
 

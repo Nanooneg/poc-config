@@ -1,13 +1,16 @@
-server:
-  port: ${SERVER_PORT}
+#server:
+#  port: ${SERVER_PORT}
 
 spring:
   application:
     name: test
   cloud:
+    config:
+      uri: http://localhost:9000
+      username: confUser
+      password: confPassword
     discovery:
       enabled: true
-  ## TO GET KEYCLOAK ENDPOINTS : http://localhost:8080/auth/realms/test/.well-known/openid-configuration
   security:
     oauth2:
       resourceserver:
